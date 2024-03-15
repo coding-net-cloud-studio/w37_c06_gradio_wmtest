@@ -272,9 +272,9 @@ l57_30_git_clong_c28_aig_meetup(){
 	fi
 
 	# git clone subtree完毕以后_新增一个cloudstudio窗口去展示_该子git仓库的信息
-	if [[ -d /workspace/w22_c28_aig_meetup ]]; then
-		cloudstudio -n /workspace/w22_c28_aig_meetup
-	fi
+	# if [[ -d /workspace/w22_c28_aig_meetup ]]; then
+	# 	cloudstudio -n /workspace/w22_c28_aig_meetup
+	# fi
 
 	return 0
 }
