@@ -1,7 +1,7 @@
 autoOpen: true
 apps:
   - port: 5055
-    run: ./01_run_me_立即运行我_gitee_替换cloudstudio中pyenv.sh
+    run: ./kk_02_run_me_立即运行我_gitee_替换cloudstudio中pyenv.sh
     root: .
     name: 新码农在家背单词_公告板
     description: v00.00.00.20_cloud_studio_新码农在家背单词_公告板
