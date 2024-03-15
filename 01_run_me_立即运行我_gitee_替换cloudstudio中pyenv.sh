@@ -49,6 +49,9 @@ f20_linux_git_setting() {
 	# https://www.cnblogs.com/v5captain/p/14832597.html
 	#相当于在~/.gitconfig 文件中加入一行 file:/root/.gitconfig   core.quotepath=false
 	# core.quotepath=false
+	git config --global user.email "自学自讲@网上自习室"
+	git config --global user.name "自学自讲"
+
 	git config --global core.quotepath false
 	git config --global --add safe.directory $(pwd)
 
@@ -170,6 +173,7 @@ l10_install_me(){
 	return 0
 }
 
+
 # ==============================================================
 # NOTE 针对club.cloudstudio.net社区版本
 # NOTE 从github.com上获得git仓库建立工作空间以后
@@ -181,16 +185,16 @@ l30_git_clone_and_install_new_pyenv(){
 	# NOTE 判断是否_有必要_执行本函数
 	# 如果没有_必要_再次执行_就return_0
 	if [[ -f $(which cloudstudio) ]]; then
-		if [[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then 
+		if [[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then
 			# 标志性的锁文件已经存在了
-			if [[ -d /root/.pyenv/03_vscode_extension ]]; then 
+			if [[ -d /root/.pyenv/03_vscode_extension ]]; then
 				echo "没有必要再次执行_01_rum_me_的l30()函数"
 				return 0
 			fi
 		fi
 	fi
 
-	
+
 
 	if [[ -f $(which cloudstudio) ]]; then
 		if [[ -d /root/.pyenv ]]; then
@@ -199,7 +203,7 @@ l30_git_clone_and_install_new_pyenv(){
 				# 如果发现_锁文件_把原有的那个文件删除
 				# 后面会重新创建的
 				[[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]] && rm /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
-				
+
 				# NOTE 此时,还是原始状态_可以进行替换
 					# 老的目录修改名称
 					echo "正在处置原始的/root/.pyenv目录,时间较长,请耐心等待一小会"
@@ -248,10 +252,31 @@ l30_git_clone_and_install_new_pyenv(){
 	return 0
 }
 
+# ==============================================================
+# NOTE 通过git_subtree的形式把子git仓库加入进来_并新增一个cloudstudio的窗口
+l57_30_git_clong_c28_aig_meetup(){
+
+	if [[ ! -d /workspace/w22_c28_aig_meetup ]]; then
+		git subtree \
+			add \
+			-P  w22_c28_aig_meetup \
+			https://gitee.com/coding_net_cloud_studio/w22_c28_aig_meetup.git \
+			wmstudy \
+			--squash
+	fi
+
+	# git clone subtree完毕以后_新增一个cloudstudio窗口去展示_该子git仓库的信息
+	if [[ -d /workspace/w22_c28_aig_meetup ]]; then
+		cloudstudio -n /workspace/w22_c28_aig_meetup
+	fi
+
+	return 0
+}
+
 
 # ==============================================================
-# NOTE 定义main()函数
-main(){
+# NOTE 定义main()函数的主体
+f94_2828_30_main(){
 
 	f16_cs_vs_settings_user_update
 
@@ -265,10 +290,52 @@ main(){
 	# 需要从gitee上获取新的pyenv环境
 	l30_git_clone_and_install_new_pyenv
 
+	# NOTE 通过git_subtree的形式把子git仓库加入进来_并新增一个cloudstudio的窗口
+	l57_30_git_clong_c28_aig_meetup
+
 	return 0
 }
 
 # ==============================================================
 
+
+f96_3060_check_environment_and_run_main(){
+
+	if [[ -f $(which cloudstudio) ]]; then
+		# 已经位于cloudstudio.net的工作空间以内了
+		if [[ $(whoami) == "root" ]]; then
+			echo "$(whoami)"
+			if [[ -d /workspace ]]; then
+				# 这里可以执行本脚本
+				echo "可以执行后继的操作"
+
+				# 这里是main函数
+				f94_2828_30_main
+
+			fi
+		else
+			echo "不知道是_啥环境_不能运行本脚本"
+			# 不符合运行条件_退出本脚本的运行
+			exit 0
+		fi
+	fi
+
+	return 0
+}
+
+# ==============================================================
+# NOTE main()是f94_2828_30_main()的便捷名称
+main(){
+
+	f94_2828_30_main
+
+	return 0
+}
+
 # NOTE 调用main()函数
-main
+# main
+
+# ==============================================================
+# 下面是_正式_的入口
+# echo $*
+[ -z "$1" ] && eval f96_3060_check_environment_and_run_main || eval $1 $*
