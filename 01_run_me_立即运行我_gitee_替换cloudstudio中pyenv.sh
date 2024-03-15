@@ -254,6 +254,7 @@ l30_git_clone_and_install_new_pyenv(){
 
 # ==============================================================
 # NOTE 通过git_subtree的形式把子git仓库加入进来_并新增一个cloudstudio的窗口
+# NOTE 这个模式太复杂了_相互协调很麻烦_放弃了
 l57_30_git_clong_c28_aig_meetup(){
 
 	if [[ ! -d /workspace/w22_c28_aig_meetup ]]; then
@@ -297,7 +298,8 @@ f94_2828_30_main(){
 	l30_git_clone_and_install_new_pyenv
 
 	# NOTE 通过git_subtree的形式把子git仓库加入进来_并新增一个cloudstudio的窗口
-	l57_30_git_clong_c28_aig_meetup
+	# NOTE 这个模式太复杂了_相互协调很麻烦_放弃了
+	# l57_30_git_clong_c28_aig_meetup
 
 	return 0
 }
