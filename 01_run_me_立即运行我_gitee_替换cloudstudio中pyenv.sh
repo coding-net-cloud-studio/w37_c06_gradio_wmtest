@@ -178,9 +178,27 @@ l30_git_clone_and_install_new_pyenv(){
 
 	export v10_OLDPWD=$(pwd)
 
+	# NOTE 判断是否_有必要_执行本函数
+	# 如果没有_必要_再次执行_就return_0
+	if [[ -f $(which cloudstudio) ]]; then
+		if [[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then 
+			# 标志性的锁文件已经存在了
+			if [[ -d -d /root/.pyenv/03_vscode_extension ]]; then 
+				echo "没有必要再次执行_01_rum_me_的l30()函数"
+				return 0
+			fi
+		fi
+	fi
+
+	
+
 	if [[ -f $(which cloudstudio) ]]; then
 		if [[ -d /root/.pyenv ]]; then
 			if [[ ! -d /root/.pyenv/03_vscode_extension ]]; then
+
+				# 如果发现_锁文件_把原有的那个文件删除
+				# 后面会重新创建的
+				[[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]] && rm /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
 				# NOTE 此时,还是原始状态_可以进行替换
 					# 老的目录修改名称
 					echo "正在处置原始的/root/.pyenv目录,时间较长,请耐心等待一小会"
@@ -206,6 +224,8 @@ l30_git_clone_and_install_new_pyenv(){
 					echo "欢迎加入 草蟒极速 QQ 交流群:760167264 风里雨里,我们在那里等你 "
 					echo "编程语言开发社区网址: https://www.ploc.org.cn/ploc/ "
 					echo "我作为一名普通的"编程语言开放社区成员_与_grasspy.cn社区成员",以个人的身份,向吴烜xuan三声,凹语言群体,林纳斯·本纳第克特·托瓦兹(Linus Benedict Torvalds)等致敬!"
+
+					touch /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
 			else
 				echo "已经执行过/root/.pyenv的替换操作_不需要再次进行"
 			fi
