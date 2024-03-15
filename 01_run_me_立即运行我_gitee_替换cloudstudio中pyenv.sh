@@ -183,7 +183,7 @@ l30_git_clone_and_install_new_pyenv(){
 	if [[ -f $(which cloudstudio) ]]; then
 		if [[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then 
 			# 标志性的锁文件已经存在了
-			if [[ -d -d /root/.pyenv/03_vscode_extension ]]; then 
+			if [[ -d /root/.pyenv/03_vscode_extension ]]; then 
 				echo "没有必要再次执行_01_rum_me_的l30()函数"
 				return 0
 			fi
@@ -199,6 +199,7 @@ l30_git_clone_and_install_new_pyenv(){
 				# 如果发现_锁文件_把原有的那个文件删除
 				# 后面会重新创建的
 				[[ -f /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]] && rm /workspace/lock_01_run_me_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
+				
 				# NOTE 此时,还是原始状态_可以进行替换
 					# 老的目录修改名称
 					echo "正在处置原始的/root/.pyenv目录,时间较长,请耐心等待一小会"
