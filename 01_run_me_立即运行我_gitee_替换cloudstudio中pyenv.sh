@@ -333,9 +333,9 @@ main(){
 }
 
 # NOTE 调用main()函数
-# main
+main
 
 # ==============================================================
 # 下面是_正式_的入口
 # echo $*
-[ -z "$1" ] && eval f96_3060_check_environment_and_run_main || eval $1 $*
+# [ -z "$1" ] && eval f96_3060_check_environment_and_run_main || eval $1 $*
