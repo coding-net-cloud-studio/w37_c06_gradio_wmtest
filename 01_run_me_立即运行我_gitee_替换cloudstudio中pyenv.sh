@@ -189,7 +189,9 @@ l30_git_clone_and_install_new_pyenv(){
 					# 还是社区版本的club.cloudstudio.net的工作空间
 					# 直接做出凶残的动作_把/root/.pyenv/目录直接地,彻底地,给删除了
 					# mv /root/.pyenv /root/38_wmold_pyenv_这里是原始版本的pyenv
-					rm -rf /root/.pyenv
+
+					[[ -d /root/.pyenv ]] && rm -rf /root/.pyenv
+
 					echo "正在把新的pyenv版本_git_clone_到/root/.pyenv/目录下"
 					# git_clone_新的版本的pyenv到/root/.pyenv的位置
 					git clone --depth=1 https://gitee.com/coding_net_cloud_studio/ploc_grasspy_pyenv.git /root/.pyenv
