@@ -1,37 +1,47 @@
-# w37_c06_gradio_wmtest
-
-#### 介绍
-10_用于gradio的测试
-
-#### 软件架构
-软件架构说明
+# 风里雨里,我们在"编程语言开发社区"等你
 
 
-#### 安装教程
+-已经把/root/.pyenv更新为新的草莽grasspy3.10.1的版本了  
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+-已经把原始的/root/.pyenv备份为/root/38_wmold_pyenv_这里是原始版本的pyenv  
 
-#### 使用说明
+-欢迎加入 草蟒极速 QQ 交流群:760167264 风里雨里,我们在那里等你,快来吧,大家一起快乐的聊天吧!
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+-来聊聊,中西如何互为借鉴,砥砺前行,中西合璧,走进新时代,实践全球化的命运共同体
 
-#### 参与贡献
+-编程语言开发社区网址: [https://www.ploc.org.cn/](https://www.ploc.org.cn/)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+-草蟒社区网址: [http://grasspy.cn/](http://grasspy.cn/)
+
+-我们作为一名名普通的编程语言开放社区成员_与_[http://grasspy.cn/](http://grasspy.cn/)社区成员  
 
 
-#### 特技
+**以个人的身份,向:**
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+-[草蟒吴神](https://space.bilibili.com/49977287)
+    
+-[吴烜xuan三声](https://www.zhihu.com/people/CodeInChinese)
+
+-[凹语言群体](https://gitee.com/ploc-org/wa)
+
+-[林纳斯·本纳第克特·托瓦兹(Linus Benedict Torvalds)](https://baike.baidu.com/item/%E6%9E%97%E7%BA%B3%E6%96%AF%C2%B7%E6%9C%AC%E7%BA%B3%E7%AC%AC%E5%85%8B%E7%89%B9%C2%B7%E6%89%98%E7%93%A6%E5%85%B9/1034429)
+
+**等致敬!**
+
+## 甲骨文
+![甲骨文](./wmimages/b10_jia_gu_wen.jpeg)
+
+## 三星堆
+![三星堆](./wmimages/b30_san_xing_dui.jpg)
+
+## 赵无极中西合璧的油画
+![赵无极油画](./wmimages/b40_zao_wu_ji_you_hua.jpg)
+
+## 原神
+![原神](./wmimages/b50_yuan_shen.jpg)
+
+## 黑神话悟空
+![黑神话悟空](./wmimages/b60_hei_shen_hua_wu_kong.gif)
+
+
+ 
