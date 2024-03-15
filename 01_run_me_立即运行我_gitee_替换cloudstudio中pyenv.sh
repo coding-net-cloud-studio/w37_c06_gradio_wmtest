@@ -265,6 +265,12 @@ l57_30_git_clong_c28_aig_meetup(){
 			--squash
 	fi
 
+	[[ ! -f /tmp/c06_新码农在家背单词_主窗口已经打开_不需要再次打开_锁.sh ]]; then 
+		# 上述的特殊文件_不存在_就创建
+		# 该锁文件_防止_相互_循环拉起
+		touch /tmp/c06_新码农在家背单词_主窗口已经打开_不需要再次打开_锁.sh
+	fi
+
 	# git clone subtree完毕以后_新增一个cloudstudio窗口去展示_该子git仓库的信息
 	if [[ -d /workspace/w22_c28_aig_meetup ]]; then
 		cloudstudio -n /workspace/w22_c28_aig_meetup
