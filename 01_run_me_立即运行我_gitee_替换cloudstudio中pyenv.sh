@@ -1,15 +1,21 @@
 #! /bin/bash
 
+# NOTE 相当于_真的要停止60秒_给操作人员看看_log
+# pause_60_second(){
+# 	if read -t 60 -p "暂停60秒,按回车继续运行: "
+# 	then
+# 		# echo "hello $REPLY,welcome to cheng du"
+# 		printf "\n";
+# 	else
+# 		# echo "sorry, Output timeout, please execute the command again !"
+# 		printf "\n时间已到,继续运行\n";
+# 	fi
+# }
 
+# NOTE 相当于_不做调试
 pause_60_second(){
-	if read -t 60 -p "暂停60秒,按回车继续运行: "
-	then
-		# echo "hello $REPLY,welcome to cheng du"
-		printf "\n";
-	else
-		# echo "sorry, Output timeout, please execute the command again !"
-		printf "\n时间已到,继续运行\n";
-	fi
+	echo "啥都不做"
+	return 0
 }
 
 # ==============================================================
