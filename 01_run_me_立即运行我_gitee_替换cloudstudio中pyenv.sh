@@ -149,7 +149,28 @@ l10_install_me(){
 					l06_copy_06_example
 
 					# NOTE 调用安装grasspy的脚本
-					l08_call_script_to_install_vscode_ext
+
+					if [[ ! -f /root/.local/share/code-server/extensions/lock_08_安装_vscode_扩展_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then
+						# 到这里_没有发现特征_锁文件_也就是_没有安装过我们自己的vscode扩展
+						# 这个步骤_主要是cloudstudio社区版只有1G的存储空间
+						# 而在"复刻"工作空间的时候/root/.local/share/code-server/extensions/会占用很多的存储空间
+						# 只有删除
+						# 再安装我们自己的vscode扩展
+						rm -rf /root/.local/share/code-server/extensions/
+						mkidr -p /root/.local/share/code-server/extensions
+						# 删除完毕_开始安装我们自己版本的
+						l08_call_script_to_install_vscode_ext
+
+						mkdir -p /root/.local/share/code-server/extensions/
+
+						touch /root/.local/share/code-server/extensions/lock_08_安装_vscode_扩展_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
+
+						echo "新安装我们自己的vscode扩展组合_并且生成了_vscode_扩展_安装_锁文件"
+
+					else
+						echo "/root/.local/share/code-server/extensions/_目录下_已经是我们自己的vscode扩展组合_不需要再次安装了"
+					fi
+
 
 					echo "已经把/root/.pyenv更新为新的草莽grasspy3.10.1的版本了"
 					echo "欢迎加入 草蟒极速 QQ 交流群:760167264 风里雨里,我们在那里等你 "
@@ -268,7 +289,7 @@ l57_30_git_clong_c28_aig_meetup(){
 			--squash
 	fi
 
-	if [[ ! -f /tmp/c06_新码农在家背单词_主窗口已经打开_不需要再次打开_锁.sh ]]; then 
+	if [[ ! -f /tmp/c06_新码农在家背单词_主窗口已经打开_不需要再次打开_锁.sh ]]; then
 		# 上述的特殊文件_不存在_就创建
 		# 该锁文件_防止_相互_循环拉起
 		touch /tmp/c06_新码农在家背单词_主窗口已经打开_不需要再次打开_锁.sh
@@ -291,11 +312,11 @@ l57_30_git_clong_c28_aig_meetup(){
 # 大约释放200M左右的存储空间
 l77_clean_root_pyenv_sub_directories(){
 
-	if [[ -d /root/.pyenv/06_样例 ]]; then 
+	if [[ -d /root/.pyenv/06_样例 ]]; then
 		rm -rf /root/.pyenv/06_样例
 	fi
 
-	if [[ -d /root/.pyenv/.git ]]; then 
+	if [[ -d /root/.pyenv/.git ]]; then
 		rm -rf /root/.pyenv/.git
 	fi
 
@@ -305,6 +326,9 @@ l77_clean_root_pyenv_sub_directories(){
 # ==============================================================
 # NOTE 定义main()函数的主体
 f94_2828_30_main(){
+
+	# 无论何时都先尝试建立这样一个目录
+	mkdir -p /root/.pyenv
 
 	f16_cs_vs_settings_user_update
 
