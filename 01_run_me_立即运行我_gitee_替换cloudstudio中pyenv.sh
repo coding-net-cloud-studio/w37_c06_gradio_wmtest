@@ -148,7 +148,7 @@ l10_install_me(){
 					# NOTE 把06_样例目录拷贝到/workspace/下面去
 					l06_copy_06_example
 
-					# NOTE 调用安装grasspy的脚本
+					# NOTE 调用安装grasspy等vscode扩展的脚本
 
 					if [[ ! -f /root/.local/share/code-server/extensions/lock_08_安装_vscode_扩展_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then
 						# 到这里_没有发现特征_锁文件_也就是_没有安装过我们自己的vscode扩展
@@ -256,8 +256,40 @@ l30_git_clone_and_install_new_pyenv(){
 					# NOTE 把06_样例目录拷贝到/workspace/下面去
 					# l06_copy_06_example
 
-					# NOTE 调用安装grasspy的脚本
-					l08_call_script_to_install_vscode_ext
+					# NOTE 调用安装grasspy等vscode扩展的脚本
+
+					if [[ ! -f /root/.local/share/code-server/extensions/lock_08_安装_vscode_扩展_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt ]]; then
+						# 到这里_没有发现特征_锁文件_也就是_没有安装过我们自己的vscode扩展
+						# 这个步骤_主要是cloudstudio社区版只有1G的存储空间
+						# 而在"复刻"工作空间的时候/root/.local/share/code-server/extensions/会占用很多的存储空间
+						# 只有删除
+						# 再安装我们自己的vscode扩展
+						rm -rf /root/.local/share/code-server/extensions/
+						mkidr -p /root/.local/share/code-server/extensions
+						# 删除完毕_开始安装我们自己版本的
+						l08_call_script_to_install_vscode_ext
+
+						mkdir -p /root/.local/share/code-server/extensions/
+
+						touch /root/.local/share/code-server/extensions/lock_08_安装_vscode_扩展_已经被执行过一次_锁文件_不需要再次执行_wmgitignore.txt
+
+						echo "新安装我们自己的vscode扩展组合_并且生成了_vscode_扩展_安装_锁文件"
+
+						pause_60_second
+
+						cloudstudio --list-extensions
+
+						pause_60_second
+
+						ls -lah /root/.local/share/code-server/extensions/
+
+						pause_60_second
+
+					else
+						echo "/root/.local/share/code-server/extensions/_目录下_已经是我们自己的vscode扩展组合_不需要再次安装了"
+						pause_60_second
+					fi
+
 
 					echo "已经把/root/.pyenv更新为新的草莽grasspy3.10.1的版本了"
 					echo "欢迎加入 草蟒极速 QQ 交流群:760167264 风里雨里,我们在那里等你 "
