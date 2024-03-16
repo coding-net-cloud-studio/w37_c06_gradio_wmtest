@@ -167,8 +167,19 @@ l10_install_me(){
 
 						echo "新安装我们自己的vscode扩展组合_并且生成了_vscode_扩展_安装_锁文件"
 
+						pause_60_second
+
+						cloudstudio --list-extensions
+
+						pause_60_second
+
+						ls -lah /root/.local/share/code-server/extensions/
+
+						pause_60_second
+
 					else
 						echo "/root/.local/share/code-server/extensions/_目录下_已经是我们自己的vscode扩展组合_不需要再次安装了"
+						pause_60_second
 					fi
 
 
