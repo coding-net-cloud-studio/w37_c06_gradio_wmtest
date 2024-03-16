@@ -269,6 +269,9 @@ l30_git_clone_and_install_new_pyenv(){
 						# NOTE 必须手工建立一个如下的文件_才会正确的安装vscode的扩展
 						echo "[]" > /root/.local/share/code-server/extensions/extensions.json
 
+						ls -lah /root/.local/share/code-server/extensions/
+						pause_60_second
+
 						# 删除完毕_开始安装我们自己版本的
 						l08_call_script_to_install_vscode_ext
 
