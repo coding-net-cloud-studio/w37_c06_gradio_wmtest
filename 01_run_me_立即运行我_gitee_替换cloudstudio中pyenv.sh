@@ -89,6 +89,8 @@ f23_install_some_software(){
 # ==============================================================
 
 # NOTE 把06_样例目录拷贝到/workspace/下面去
+# NOTE 这个函数_在本git仓库的_设置_cloudstudio_工作空间中_没有被调用
+# 保留一段时间_为了保持一致
 l06_copy_06_example(){
 
 	export v06_OLDPWD=$(pwd)
@@ -280,6 +282,25 @@ l57_30_git_clong_c28_aig_meetup(){
 	return 0
 }
 
+# ==============================================================
+
+# NOTE 由于通过git_clone_下载新的pyenv到/root/.pyenv位置以后
+# /root/.pyenv/.git目录会占有148M的存储空间
+# /root/.pyenv/06_样例_目录_会占用_53M_的存储空间
+# 删除上述两个目录_释放一定的空间
+# 大约释放200M左右的存储空间
+l77_clean_root_pyenv_sub_directories(){
+
+	if [[ -d /root/.pyenv/06_样例 ]]; then 
+		rm -rf /root/.pyenv/06_样例
+	fi
+
+	if [[ -d /root/.pyenv/.git ]]; then 
+		rm -rf /root/.pyenv/.git
+	fi
+
+	return 0
+}
 
 # ==============================================================
 # NOTE 定义main()函数的主体
@@ -300,6 +321,9 @@ f94_2828_30_main(){
 	# NOTE 通过git_subtree的形式把子git仓库加入进来_并新增一个cloudstudio的窗口
 	# NOTE 这个模式太复杂了_相互协调很麻烦_放弃了
 	# l57_30_git_clong_c28_aig_meetup
+
+	# NOTE 增加一个clean的函数_释放/root/.pyenv下更多的空间
+	l77_clean_root_pyenv_sub_directories
 
 	return 0
 }
